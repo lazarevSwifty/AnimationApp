@@ -10,19 +10,76 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Animation View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AnimationViewController" customModule="AnimationApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimationApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zo4-lN-kbo" customClass="SpringView" customModule="Spring">
+                                <rect key="frame" x="20" y="132" width="374" height="163"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Жду анимацию" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gY6-Z7-Pz6">
+                                        <rect key="frame" x="106" y="68" width="162" height="27.5"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="Atv-ru-oq8"/>
+                                    <constraint firstItem="gY6-Z7-Pz6" firstAttribute="centerX" secondItem="Zo4-lN-kbo" secondAttribute="centerX" id="nbd-nU-pDr"/>
+                                    <constraint firstAttribute="height" constant="163" id="oCe-Pr-uT9"/>
+                                    <constraint firstItem="gY6-Z7-Pz6" firstAttribute="centerY" secondItem="Zo4-lN-kbo" secondAttribute="centerY" id="tq6-aP-JVR"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMO-fh-zrS" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="64" y="659.5" width="286" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="286" id="unK-Ww-uOX"/>
+                                </constraints>
+                                <state key="normal" title="Запуск анимации">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="runButtonClicl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HBl-oU-8Ow"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Zo4-lN-kbo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RxF-VK-nNG"/>
+                            <constraint firstItem="gMO-fh-zrS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cGw-d8-wfb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gMO-fh-zrS" secondAttribute="bottom" multiplier="1.25" constant="-12.375" id="hXk-Yg-WxI"/>
+                            <constraint firstItem="Zo4-lN-kbo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="88" id="jfV-id-m1r"/>
+                            <constraint firstItem="gMO-fh-zrS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wsi-rf-jrF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="gY6-Z7-Pz6" id="7g4-CF-9kb"/>
+                        <outlet property="runButton" destination="gMO-fh-zrS" id="Gii-hW-vq0"/>
+                        <outlet property="springView" destination="Zo4-lN-kbo" id="J7M-FH-FZg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
         </scene>
     </scenes>
 </document>
